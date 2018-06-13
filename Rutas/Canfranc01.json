@@ -1,8 +1,8 @@
 "Canfranc01": {
 	"Date": {
-		"Year": null,
-		"Month": null,
-		"Day": null,
+		"Year": "null",
+		"Month": "null",
+		"Day": "null",
 	},
 	"Coor" : [
 		{"lng": -0.524879, "lat": 42.795383},
