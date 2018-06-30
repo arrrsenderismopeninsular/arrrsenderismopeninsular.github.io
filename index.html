@@ -54,7 +54,7 @@
 		var PathCanfranc01 = new google.maps.Polyline({
           path: Canfranc01.Coor,
           geodesic: true,
-          strokeColor: '#0000CC',
+          strokeColor: '#000000',
           strokeOpacity: 1,
         });
 		PathCanfranc01.setMap(map);
@@ -73,7 +73,7 @@
 		var PathCanfranc02 = new google.maps.Polyline({
           path: Canfranc02.Coor,
           geodesic: true,
-          strokeColor: '#0000CC',
+          strokeColor: '#000000',
           strokeOpacity: 1,
         });
 		PathCanfranc02.setMap(map);
@@ -92,7 +92,7 @@
 		var PathCanfranc03 = new google.maps.Polyline({
           path: Canfranc03.Coor,
           geodesic: true,
-          strokeColor: '#0000CC',
+          strokeColor: '#000000',
           strokeOpacity: 1,
         });
 		PathCanfranc03.setMap(map);
@@ -113,7 +113,7 @@
 		var PathSVincenCubelles = new google.maps.Polyline({
           path: SVincenCubelles.Coor,
           geodesic: true,
-          strokeColor: '#0000CC',
+          strokeColor: '#000000',
           strokeOpacity: 1,
         });
 		PathSVincenCubelles.setMap(map);
@@ -132,7 +132,7 @@
 		var PathCubellesVNG = new google.maps.Polyline({
           path: CubellesVNG.Coor,
           geodesic: true,
-          strokeColor: '#0000CC',
+          strokeColor: '#000000',
           strokeOpacity: 1,
         });
 		PathCubellesVNG.setMap(map);
@@ -151,7 +151,7 @@
 		var PathVNG_Sitges = new google.maps.Polyline({
           path: VNG_Sitges.Coor,
           geodesic: true,
-          strokeColor: '#0000CC',
+          strokeColor: '#000000',
           strokeOpacity: 1,
         });
 		PathVNG_Sitges.setMap(map);
@@ -170,7 +170,7 @@
 		var PathSitgesCastelldefels = new google.maps.Polyline({
           path: SitgesCastelldefels.Coor,
           geodesic: true,
-          strokeColor: '#0000CC',
+          strokeColor: '#000000',
           strokeOpacity: 1,
         });
 		PathSitgesCastelldefels.setMap(map);
@@ -189,7 +189,7 @@
 		var PathCastefellsSants = new google.maps.Polyline({
           path: CastefellsSants.Coor,
           geodesic: true,
-          strokeColor: '#0000CC',
+          strokeColor: '#000000',
           strokeOpacity: 1,
         });
 		PathCastefellsSants.setMap(map);
@@ -208,7 +208,7 @@
 		var PathBarcelonaBadalona = new google.maps.Polyline({
           path: BarcelonaBadalona.Coor,
           geodesic: true,
-          strokeColor: '#0000CC',
+          strokeColor: '#000000',
           strokeOpacity: 1,
         });
 		PathBarcelonaBadalona.setMap(map);
@@ -227,15 +227,17 @@
 		var PathMontgat = new google.maps.Polyline({
           path: Montgat.Coor,
           geodesic: true,
-          strokeColor: '#0000CC',
+          strokeColor: '#000000',
           strokeOpacity: 1,
         });
 		PathMontgat.setMap(map);
 		
 		//FFCC
 		//Color #ff9011 para rodalies
-		//Color #e900f9 para cremallera de FGC
-		//Sants - Puigcerdà
+		//Color #e57a00 para FGC
+		//Color #0015ff para cremallera de FGC
+		
+		//Rodalies Sants - Puigcerdà
 		{var RodaliesPuigcerda = null;
 			$.ajax({
 				url: "https://arrrsenderismopeninsular.github.io/FFCC/CatalunyaR3.json",
@@ -254,7 +256,66 @@
           strokeOpacity: 1,
         });
 		PathRodaliesPuigcerda.setMap(map);
-		//Cremallera de Nuria
+		
+		//FGC Barcelona-Vallès(Pl. Catalunya - Terrassa)
+		{var FGC_CatalunyaTerrassa = null;
+			$.ajax({
+				url: "https://arrrsenderismopeninsular.github.io/FFCC/FGC.BCN_Valles.json",
+				type: 'get',
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					FGC_CatalunyaTerrassa = data;
+				} 
+			});
+		}
+		var PathFGC_CatalunyaTerrassa = new google.maps.Polyline({
+          path: FGC_CatalunyaTerrassa.Coor,
+          geodesic: true,
+          strokeColor: '#e57a00',
+          strokeOpacity: 1,
+        });
+		PathFGC_CatalunyaTerrassa.setMap(map);
+		//FGC Anoia-Llobregat (Pl. Espanya - Montserrat)
+		{var FGC_EspanyaMontserrat = null;
+			$.ajax({
+				url: "https://arrrsenderismopeninsular.github.io/FFCC/FGC.Anoia_Llobregat.json",
+				type: 'get',
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					FGC_EspanyaMontserrat = data;
+				} 
+			});
+		}
+		var PathFGC_EspanyaMontserrat = new google.maps.Polyline({
+          path: FGC_EspanyaMontserrat.Coor,
+          geodesic: true,
+          strokeColor: '#e57a00',
+          strokeOpacity: 1,
+        });
+		PathFGC_EspanyaMontserrat.setMap(map);
+		
+		//FGC Cremallera de Montserrat
+		{var CremalleraMontserrat = null;
+			$.ajax({
+				url: "https://arrrsenderismopeninsular.github.io/FFCC/CremalleraMontserrat.json",
+				type: 'get',
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					CremalleraMontserrat = data;
+				} 
+			});
+		}
+		var PathCremalleraMontserrat = new google.maps.Polyline({
+          path: CremalleraMontserrat.Coor,
+          geodesic: true,
+          strokeColor: '#0015ff',
+          strokeOpacity: 1,
+        });
+		PathCremalleraMontserrat.setMap(map);
+		//FGC Cremallera de Nuria
 		{var CremalleraNuria = null;
 			$.ajax({
 				url: "https://arrrsenderismopeninsular.github.io/FFCC/CremalleraNuria.json",
@@ -269,7 +330,7 @@
 		var PathCremalleraNuria = new google.maps.Polyline({
           path: CremalleraNuria.Coor,
           geodesic: true,
-          strokeColor: '#e900f9',
+          strokeColor: '#0015ff',
           strokeOpacity: 1,
         });
 		PathCremalleraNuria.setMap(map);
@@ -298,7 +359,7 @@
         // Display a polyline of the elevation path.
         new google.maps.Polyline({
           path: path,
-          strokeColor: '#0000CC',
+          strokeColor: '#000000',
           strokeOpacity: 1,
           map: map
         });
