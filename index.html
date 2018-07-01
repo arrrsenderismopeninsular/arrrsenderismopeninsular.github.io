@@ -233,9 +233,11 @@
 		PathMontgat.setMap(map);
 		
 		//FFCC
-		//Color #ff9011 para rodalies
-		//Color #e57a00 para FGC
-		//Color #0015ff para cremallera de FGC
+		//Color #ff9011 para Rodalies
+		//Color #c400ad para AVE
+		//Color #e57a00 para FGC'
+		
+		//Color #0015ff para Cremallera de FGC
 		
 		//Rodalies Sants - Puigcerdà
 		{var RodaliesPuigcerda = null;
@@ -256,6 +258,83 @@
           strokeOpacity: 1,
         });
 		PathRodaliesPuigcerda.setMap(map);
+		
+		//AVE Zaragoza Variante
+		{var AVE_ZaragozaVar = null;
+			$.ajax({
+				url: "https://arrrsenderismopeninsular.github.io/FFCC/AVE.Zaragora_Variante.json",
+				type: 'get',
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					AVE_ZaragozaVar = data;
+				} 
+			});
+		}
+		var PathAVE_ZaragozaVar = new google.maps.Polyline({
+          path: AVE_ZaragozaVar.Coor,
+          geodesic: true,
+          strokeColor: '#c400ad',
+          strokeOpacity: 1,
+        });
+		PathAVE_ZaragozaVar.setMap(map);
+		//AVE Zaragoza - Barcelona Sants
+		{var AVE_ZaragozaBarcelona = null;
+			$.ajax({
+				url: "https://arrrsenderismopeninsular.github.io/FFCC/AVE.ZaragoraSants.json",
+				type: 'get',
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					AVE_ZaragozaBarcelona = data;
+				} 
+			});
+		}
+		var PathAVE_ZaragozaBarcelona = new google.maps.Polyline({
+          path: AVE_ZaragozaBarcelona.Coor,
+          geodesic: true,
+          strokeColor: '#c400ad',
+          strokeOpacity: 1,
+        });
+		PathAVE_ZaragozaBarcelona.setMap(map);
+		//AVE Lleida Variante
+		{var AVE_LleidaVar = null;
+			$.ajax({
+				url: "https://arrrsenderismopeninsular.github.io/FFCC/AVE.Lleida_Variante.json",
+				type: 'get',
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					AVE_LleidaVar = data;
+				} 
+			});
+		}
+		var PathAVE_LleidaVar = new google.maps.Polyline({
+          path: AVE_LleidaVar.Coor,
+          geodesic: true,
+          strokeColor: '#c400ad',
+          strokeOpacity: 1,
+        });
+		PathAVE_LleidaVar.setMap(map);
+		//AVE Barcelona Sants - Girona
+		{var AVE_BarcelonaGirona = null;
+			$.ajax({
+				url: "https://arrrsenderismopeninsular.github.io/FFCC/AVE.SantsGirona.json",
+				type: 'get',
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					AVE_BarcelonaGirona = data;
+				} 
+			});
+		}
+		var PathAVE_BarcelonaGirona = new google.maps.Polyline({
+          path: AVE_BarcelonaGirona.Coor,
+          geodesic: true,
+          strokeColor: '#c400ad',
+          strokeOpacity: 1,
+        });
+		PathAVE_BarcelonaGirona.setMap(map);
 		
 		//FGC Barcelona-Vallès(Pl. Catalunya - Terrassa)
 		{var FGC_CatalunyaTerrassa = null;
