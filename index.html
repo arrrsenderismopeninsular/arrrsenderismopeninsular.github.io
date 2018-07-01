@@ -233,7 +233,7 @@
 		PathMontgat.setMap(map);
 		
 		//FFCC
-		//Color #ff9011 para Rodalies
+		//Color #ff9011 para Rodalies y MD
 		//Color #c400ad para AVE
 		//Color #e57a00 para FGC'
 		
@@ -258,6 +258,44 @@
           strokeOpacity: 1,
         });
 		PathRodaliesPuigcerda.setMap(map);
+		//MD Barcelona - Tarragona
+		{var MD_BCN_TAR = null;
+			$.ajax({
+				url: "https://arrrsenderismopeninsular.github.io/FFCC/MD.BarcelonaTarragona.json",
+				type: 'get',
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					MD_BCN_TAR = data;
+				} 
+			});
+		}
+		var PathMD_BCN_TAR = new google.maps.Polyline({
+          path: MD_BCN_TAR.Coor,
+          geodesic: true,
+          strokeColor: '#ff9011',
+          strokeOpacity: 1,
+        });
+		PathMD_BCN_TAR.setMap(map);
+		//MD Girona - Figueres
+		{var MD_GironaFigueres = null;
+			$.ajax({
+				url: "https://arrrsenderismopeninsular.github.io/FFCC/MD.GironaFigueres.json",
+				type: 'get',
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					MD_GironaFigueres = data;
+				} 
+			});
+		}
+		var PathMD_GironaFigueres = new google.maps.Polyline({
+          path: MD_GironaFigueres.Coor,
+          geodesic: true,
+          strokeColor: '#ff9011',
+          strokeOpacity: 1,
+        });
+		PathMD_GironaFigueres.setMap(map);
 		
 		//AVE Zaragoza Variante
 		{var AVE_ZaragozaVar = null;
