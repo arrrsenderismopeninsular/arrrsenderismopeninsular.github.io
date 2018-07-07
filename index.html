@@ -38,7 +38,8 @@
           center: {lat: 40.1680665, lng: -4.0660689},		  
           mapTypeId: 'terrain'
         });
-		
+		//Senderismo
+		{
 		//Canfranc01
 		{var Canfranc01 = null;
 			$.ajax({
@@ -231,14 +232,18 @@
           strokeOpacity: 1,
         });
 		PathMontgat.setMap(map);
+		}
+		
 		
 		//FFCC
+		{
 		//Color #ff9011 para Rodalies y MD
 		//Color #c400ad para AVE
-		//Color #e57a00 para FGC'
-		
+		//Color #e57a00 para FGC
 		//Color #0015ff para Cremallera de FGC
 		
+		//Renfe convencional
+		{
 		//Rodalies Sants - Puigcerdà
 		{var RodaliesPuigcerda = null;
 			$.ajax({
@@ -296,7 +301,31 @@
           strokeOpacity: 1,
         });
 		PathMD_GironaFigueres.setMap(map);
+		//MD Zaragoza - Canfranc
+		{var MD_ZaragozaCanfranc = null;
+			$.ajax({
+				url: "https://arrrsenderismopeninsular.github.io/FFCC/MD.ZaragozaCanfranc.json",
+				type: 'get',
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					MD_ZaragozaCanfranc = data;
+				} 
+			});
+		}
+		var PathMD_ZaragozaCanfranc = new google.maps.Polyline({
+          path: MD_ZaragozaCanfranc.Coor,
+          geodesic: true,
+          strokeColor: '#ff9011',
+          strokeOpacity: 1,
+        });
+		PathMD_ZaragozaCanfranc.setMap(map);
+		//Fin de Renfe convencional
+		}
 		
+		
+		//AVE
+		{
 		//AVE Zaragoza Variante
 		{var AVE_ZaragozaVar = null;
 			$.ajax({
@@ -373,7 +402,10 @@
           strokeOpacity: 1,
         });
 		PathAVE_BarcelonaGirona.setMap(map);
+		}
 		
+		//FGC
+		{
 		//FGC Barcelona-Vallès(Pl. Catalunya - Terrassa)
 		{var FGC_CatalunyaTerrassa = null;
 			$.ajax({
@@ -451,7 +483,8 @@
           strokeOpacity: 1,
         });
 		PathCremalleraNuria.setMap(map);
-		
+		}
+		}
 		
 		
 		
